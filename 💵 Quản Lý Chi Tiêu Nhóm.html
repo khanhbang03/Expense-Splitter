@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sổ Chi Tiêu Nhóm Bạn | Expense Splitter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>💵 Quản Lý Chi Tiêu Nhóm</h1>
+        <nav>
+            <ul>
+                <li><a href="#record-expense">Ghi Chi Phí</a></li>
+                <li><a href="#summary">Tổng Quan Nợ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="record-expense">
+            <h2>📝 Ghi Lại Một Khoản Chi Tiêu Mới</h2>
+            <form id="expense-form">
+
+                <div class="form-group">
+                    <label for="description">Mô Tả Chi Phí:</label>
+                    <input type="text" id="description" name="description" placeholder="Ví dụ: Tiền thuê villa cuối tuần" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="total-amount">Tổng Số Tiền:</label>
+                    <input type="number" id="total-amount" name="total-amount" min="1000" placeholder="Ví dụ: 2500000" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="paid-by">Ai là người đã trả tiền (Paid By)?</label>
+                    <select id="paid-by" name="paid-by" required>
+                        <option value="">-- Chọn người trả --</option>
+                        <option value="U1">Dinh Phuong Anh</option>
+                        <option value="U2">Anh Viet Doan</option>
+                        <option value="U3">Le Duy Duc</option>
+                        <option value="U4">Chu Thanh Thao</option>
+                        <option value="U5">Ta Ha Trang</option>
+                        <option value="U6">Nguyen Khanh Bang</option>
+                        <option value="U7">Nguyen Phuc Thang</option>
+                        <option value="U8">Le Van Bao</option>
+                        <option value="U9">Mrudav Mehta</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Những ai tham gia (Chia đều chi phí):</label>
+                    <div id="split-participants" class="participants-list">
+                        <label><input type="checkbox" name="participants" value="U1"> Dinh Phuong Anh</label>
+                        <label><input type="checkbox" name="participants" value="U2"> Anh Viet Doan</label>
+                        <label><input type="checkbox" name="participants" value="U3"> Le Duy Duc</label>
+                        <label><input type="checkbox" name="participants" value="U4"> Chu Thanh Thao</label>
+                        <label><input type="checkbox" name="participants" value="U5"> Ta Ha Trang</label>
+                        <label><input type="checkbox" name="participants" value="U6"> Nguyen Khanh Bang</label>
+                        <label><input type="checkbox" name="participants" value="U7"> Nguyen Phuc Thang</label>
+                        <label><input type="checkbox" name="participants" value="U8"> Le Van Bao</label>
+                        <label><input type="checkbox" name="participants" value="U9"> Mrudav Mehta</label>
+                    </div>
+                    <button type="button" id="select-all">Chọn Tất Cả</button>
+                </div>
+                
+                <button type="submit" class="submit-btn">Lưu Chi Phí</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <section id="summary">
+            <h2>📊 Tổng Quan Nợ Ròng</h2>
+            <div id="summary-content">
+                <p>Nhấn nút **Cập Nhật Tổng Nợ** để xem ai nợ ai.</p>
+                <button id="update-summary-btn" class="secondary-btn">Cập Nhật Tổng Nợ</button>
+
+                <div id="debt-results" class="results-area">
+                    </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Nhóm Quản Lý Chi Tiêu. Dữ liệu chỉ mang tính chất nội bộ.</p>
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

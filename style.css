@@ -1,0 +1,244 @@
+/*
+=================================
+1. CÀI ĐẶT CHUNG (GLOBAL STYLES)
+=================================
+*/
+:root {
+    --primary-color: #3f51b5; /* Màu xanh đậm, thân thiện */
+    --secondary-color: #ff4081; /* Màu hồng nhấn */
+    --background-color: #e8eaf6; /* Nền nhạt */
+    --card-background: #ffffff; /* Nền thẻ */
+    --text-color: #212121;
+    --success-color: #4caf50; /* Màu xanh lá (nợ đã thanh toán/đã được nợ) */
+    --danger-color: #f44336; /* Màu đỏ (đang nợ) */
+    --border-color: #c5cae9;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/*
+=================================
+2. HEADER VÀ NAVIGATION
+=================================
+*/
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 1.6em;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+header nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/*
+=================================
+3. KHU VỰC CHÍNH & FORM
+=================================
+*/
+section {
+    background-color: var(--card-background);
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+section h2 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    border-bottom: 3px solid var(--secondary-color);
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+#expense-form input[type="text"],
+#expense-form input[type="number"],
+#expense-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+#expense-form input:focus, #expense-form select:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+/* Danh sách người tham gia (checkboxes) */
+.participants-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: #fcfcfc;
+}
+
+.participants-list label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 0.95em;
+}
+
+#select-all {
+    background-color: #7986cb;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+#select-all:hover {
+    background-color: #5c6bc0;
+}
+
+/*
+=================================
+4. NÚT CHUNG & TỔNG QUAN NỢ
+=================================
+*/
+
+.submit-btn, .secondary-btn {
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.05em;
+    font-weight: 700;
+    transition: opacity 0.3s, background-color 0.3s;
+    margin-top: 10px;
+}
+
+.submit-btn {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.submit-btn:hover {
+    opacity: 0.9;
+}
+
+.secondary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.secondary-btn:hover {
+    background-color: #3949ab;
+}
+
+.results-area {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+}
+
+.debt-item {
+    padding: 10px;
+    margin-bottom: 8px;
+    border-left: 5px solid;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.owes { /* Bạn nợ người khác */
+    background-color: #ffebee;
+    border-color: var(--danger-color);
+    color: var(--danger-color);
+}
+
+.owed { /* Người khác nợ bạn */
+    background-color: #e8f5e9;
+    border-color: var(--success-color);
+    color: var(--success-color);
+}
+
+/*
+=================================
+5. FOOTER & RESPONSIVE
+=================================
+*/
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    color: #777;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9em;
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    header nav ul {
+        margin-top: 10px;
+        padding-inline-start: 0;
+    }
+    header nav ul li {
+        margin: 0 5px;
+    }
+    .participants-list {
+        flex-direction: column;
+    }
+}
